@@ -1,36 +1,13 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+🚀 Rendering Strategies Used
 
-## Getting Started
+SSG: Used on the /about page because the content is static and does not require database calls.
 
-First, run the development server:
+ISR: Used on the public / homepage (revalidate: 60). It provides the speed of static pages but ensures newly added resources appear for users without rebuilding the whole app.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+SSR: Used on the /admin page. The admin needs real-time, strongly consistent data fetched at request-time to manage inventory accurately.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+⚡ Server Actions vs API Routes
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+API Routes (/api/resources): Used for standard RESTful CRUD operations (Create, Read, Update, Delete) to manage the resources from the admin panel. They provide structured JSON responses and error handling.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Server Actions (actions/upvoteAction.js): Used specifically for the "Upvote" button on the frontend. Since this is a simple, single-field mutation tied directly to a user click, a Server Action avoids the boilerplate of writing a custom API route and client-side fetch logic.
