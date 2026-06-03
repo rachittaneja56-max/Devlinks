@@ -41,7 +41,7 @@ export default function AddResourcePage() {
         <p className="text-gray-600 mt-2">Share a helpful tool, article, or repository with the community.</p>
       </header>
 
-      <form onSubmit={handleSubmit} className="space-y-4">
+      <form onSubmit={handleSubmit} className="space-y-4 bg-white p-6 border border-gray-200 rounded-md shadow-sm">
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-1">Title</label>
           <input 

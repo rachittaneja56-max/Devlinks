@@ -42,12 +42,12 @@ export default async function ResourcesPage({ searchParams }) {
 
       <div className="grid gap-6 md:grid-cols-2">
         {resources.length === 0 ? (
-          <div className="col-span-2 text-center py-12 text-gray-500 bg-gray-50 rounded-xl border border-gray-200">
+          <div className="col-span-2 text-center py-12 text-gray-500 bg-gray-50 rounded-md border border-gray-200">
             No resources found {q ? `matching "${q}"` : ''}.
           </div>
         ) : (
           resources.map((res) => (
-            <div key={res._id.toString()} className="p-6 bg-white border border-gray-200 shadow-sm rounded-xl hover:shadow-md transition-shadow flex flex-col justify-between h-full">
+            <div key={res._id.toString()} className="p-6 bg-white border border-gray-200 shadow-sm rounded-md flex flex-col justify-between h-full">
               <div className="mb-4">
                 <a href={res.url} target="_blank" className="text-xl font-bold text-blue-700 hover:underline hover:text-blue-800 line-clamp-1">{res.title}</a>
                 <p className="text-gray-600 mt-2 line-clamp-3">{res.description}</p>

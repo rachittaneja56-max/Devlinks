@@ -31,10 +31,10 @@ export default function DeleteButton({ id }) {
   return (
     <button 
       onClick={handleDelete} 
-      disabled={isDeleting}
+      disabled={isPending}
       className="inline-flex items-center justify-center px-3 py-1.5 text-sm font-medium bg-white text-red-600 border border-red-200 rounded-md hover:bg-red-50 hover:border-red-300 transition-colors disabled:opacity-50 shadow-sm"
     >
-      {isDeleting ? 'Deleting...' : 'Delete'}
+      {isPending ? 'Deleting...' : 'Delete'}
     </button>
   );
 }

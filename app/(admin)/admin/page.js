@@ -23,7 +23,7 @@ export default async function AdminDashboard() {
         </p>
       </header>
 
-      <div className="bg-white border border-gray-300 rounded-md overflow-hidden">
+      <div className="bg-white border border-gray-300 rounded-md overflow-hidden shadow-sm">
         <div className="p-4 border-b border-gray-300 bg-gray-50">
           <h2 className="text-lg font-bold text-black">Live Database Records</h2>
         </div>

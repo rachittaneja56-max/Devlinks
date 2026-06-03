@@ -17,7 +17,7 @@ export default function UpvoteButton({ id, initialUpvotes }) {
     <button 
       onClick={handleUpvote}
       disabled={isPending}
-      className="flex items-center gap-2 px-3 py-1.5 bg-gray-200 border border-gray-300 rounded text-black hover:bg-gray-300 disabled:opacity-50 font-medium"
+      className="flex items-center gap-2 px-3 py-1.5 bg-gray-200 border border-gray-300 rounded-md text-black hover:bg-gray-300 disabled:opacity-50 font-medium"
     >
       <span>▲</span>
       <span>{optimisticUpvotes}</span>
