@@ -4,7 +4,7 @@ import { connectToDatabase } from '@/lib/db';
 import Resource from '@/models/Resource';
 import { revalidatePath } from 'next/cache';
 
-export async function upvoteResource(id) {
+export async function upvoteResource(id: string) {
   try {
     await connectToDatabase();
     await Resource.findByIdAndUpdate(id, { $inc: { upvotes: 1 } });
