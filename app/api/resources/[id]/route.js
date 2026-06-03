@@ -14,6 +14,7 @@ export async function DELETE(request, { params }) {
     
     return NextResponse.json({ message: 'Deleted successfully' }, { status: 200 });
   } catch (error) {
+    console.error('Failed to delete:', error);
     return NextResponse.json({ error: 'Failed to delete' }, { status: 500 });
   }
 }
@@ -37,6 +38,7 @@ export async function PUT(request, { params }) {
     
     return NextResponse.json(updatedResource, { status: 200 });
   } catch (error) {
+    console.error('Failed to update resource:', error);
     return NextResponse.json({ error: 'Failed to update resource' }, { status: 500 });
   }
 }
