@@ -47,6 +47,7 @@ export default function AddResourcePage() {
           <input 
             type="text" 
             required 
+            maxLength="120"
             className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
             value={formData.title}
             onChange={(e) => setFormData({...formData, title: e.target.value})}
@@ -57,6 +58,7 @@ export default function AddResourcePage() {
           <input 
             type="url" 
             required 
+            maxLength="2048"
             className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
             value={formData.url}
             onChange={(e) => setFormData({...formData, url: e.target.value})}
@@ -66,6 +68,7 @@ export default function AddResourcePage() {
           <label className="block text-sm font-medium text-gray-700 mb-1">Description</label>
           <textarea 
             required 
+            maxLength="1000"
             rows="4"
             className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
             value={formData.description}

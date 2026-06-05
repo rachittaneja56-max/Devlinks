@@ -8,7 +8,7 @@ export async function upvoteResource(id: string) {
   try {
     await connectToDatabase();
     await Resource.findByIdAndUpdate(id, { $inc: { upvotes: 1 } });
-    revalidatePath('/');
+    revalidatePath('/resources');
   } catch (error) {
     console.error("Upvote failed:", error);
     throw new Error('Failed to upvote');

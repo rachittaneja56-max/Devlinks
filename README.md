@@ -4,7 +4,7 @@
 DevLinks is a curated directory for developers to discover, share, and upvote the most impactful engineering articles, tools, and repositories across the web. This project was built to demonstrate proficiency in Next.js App Router, combining multiple rendering strategies, API routes, and Server Actions into a single cohesive application.
 
 ## Tech Stack Used
-- **Framework**: Next.js 15 (App Router)
+- **Framework**: Next.js 16 (App Router)
 - **Styling**: Tailwind CSS
 - **Database**: MongoDB with Mongoose
 - **Notifications**: react-hot-toast
@@ -40,6 +40,11 @@ DevLinks is a curated directory for developers to discover, share, and upvote th
 
 ## Environment Variables Required
 - `MONGODB_URI`: The connection string for your MongoDB cluster.
+- `ADMIN_USERNAME`: The username used for admin Basic Auth.
+- `ADMIN_PASSWORD`: A long, random password used for admin Basic Auth.
+
+Admin credentials protect both `/admin` and `DELETE /api/resources/[id]`. Use HTTPS
+in production because Basic Auth credentials are encoded, not encrypted.
 
 ## Database Setup Instructions
 This project uses MongoDB. You only need a single collection.
@@ -55,10 +60,8 @@ This project uses MongoDB. You only need a single collection.
 - `/admin` - Admin dashboard to manage resources (SSR)
 
 ## API Routes Included
-- `GET /api/resources` - Fetches all resources.
 - `POST /api/resources` - Creates a new resource.
 - `DELETE /api/resources/[id]` - Deletes a specific resource.
-- `PUT/PATCH /api/resources/[id]` - Updates a specific resource.
 
 ## Server Actions Used
 - `upvoteaction.ts`: Contains the `upvoteResource` Server Action. This increments the upvote count of a resource directly from the Server and triggers `revalidatePath('/resources')` to instantly update the UI.
@@ -82,7 +85,7 @@ This project uses MongoDB. You only need a single collection.
 - File-based routing & Route Groups (`(public)`, `(admin)`)
 - Layouts (Nested layouts for Admin and Public)
 - MongoDB integration (Mongoose)
-- RESTful API design (GET, POST, PUT, DELETE)
+- API route design and Server Actions
 - Server Actions vs API Routes
 - SSR, SSG, and ISR
-- Basic Authentication Middleware (protecting `/admin`)
+- Basic Authentication Proxy (protecting `/admin` and resource deletion)
